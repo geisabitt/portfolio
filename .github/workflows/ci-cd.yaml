@@ -51,3 +51,19 @@ jobs:
       - name: Deploy to S3
         run: |
           aws s3 sync ./dist/portifolio s3://portifoliogeisabitt/
+
+      - name: Deploy to S3 using AWS SDK v3
+        run: |
+          npm install @aws-sdk/client-s3
+
+          node -e "const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3'); \
+                    const path = require('path'); \
+                    const fs = require('fs'); \
+                    const client = new S3Client({ region: 'us-east-2' }); \
+                    const command = new PutObjectCommand({ \
+                      Bucket: 'portifoliogeisabitt', \
+                      Key: 'index.html', \
+                      Body: fs.readFileSync(path.resolve(__dirname, 'dist/portifolio/index.html')), \
+                      ContentType: 'text/html' \
+                    }); \
+                    client.send(command).then(data => console.log('File uploaded:', data)).catch(error => console.error('Error uploading:', error));"
