@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
 
 jobs:
   build:
@@ -17,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install Dependencies
         run: npm install
@@ -46,24 +45,8 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
+          aws-region: us-east-1
 
       - name: Deploy to S3
         run: |
           aws s3 sync ./dist/portifolio s3://portifoliogeisabitt/
-
-      - name: Deploy to S3 using AWS SDK v3
-        run: |
-          npm install @aws-sdk/client-s3
-
-          node -e "const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3'); \
-                    const path = require('path'); \
-                    const fs = require('fs'); \
-                    const client = new S3Client({ region: 'us-east-2' }); \
-                    const command = new PutObjectCommand({ \
-                      Bucket: 'portifoliogeisabitt', \
-                      Key: 'index.html', \
-                      Body: fs.readFileSync(path.resolve(__dirname, 'dist/portifolio/index.html')), \
-                      ContentType: 'text/html' \
-                    }); \
-                    client.send(command).then(data => console.log('File uploaded:', data)).catch(error => console.error('Error uploading:', error));"
