@@ -1,0 +1,20 @@
+.line-left {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.line-left::before {
+  content: "";
+  display: block;
+  width: 5px; /* Largura da linha vertical */
+  background-color: rgba(196, 26, 117, 1); /* Cor da linha vertical */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+h3,
+p {
+  margin-left: 20px;
+}
