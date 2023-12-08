@@ -1,7 +1,22 @@
+:root {
+  --color-graditent: linear-gradient(
+    90deg,
+    rgba(196, 26, 117, 1) 0%,
+    rgba(244, 143, 177, 1) 23%,
+    rgba(74, 20, 140, 1) 77%
+  );
+}
+
 @import "@angular/material/theming";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 @include mat-core();
-
+* {
+  margin: 0;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
 html,
 body {
   height: 100%;
@@ -49,4 +64,9 @@ body {
   @media (max-width: 768px) {
     font-size: 20px;
   }
+}
+svg {
+  -webkit-text-fill-color: transparent;
+  width: 100%;
+  fill: var(--color-graditent);
 }
