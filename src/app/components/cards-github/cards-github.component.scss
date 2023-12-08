@@ -6,22 +6,19 @@ section {
 }
 .card-github {
   position: relative;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 300px;
+  min-width: 380px;
+  max-width: 380px;
+  min-height: 210px;
   margin: 20px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   background-color: white;
   color: black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   a {
     text-decoration: none;
-  }
-  h3 {
-    margin-right: 20px;
-  }
-  h2 {
-    margin-bottom: 5px;
   }
 }
 .deploy {
@@ -31,17 +28,24 @@ section {
 }
 .container-title {
   padding: 20px 40px;
+  width: 100%;
 }
-
+a,
+.no-deploy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 150px;
+  font-size: 14px;
+}
 a {
   background: var(--color-graditent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .tag {
   background: rgba(74, 20, 140, 1);
@@ -50,15 +54,9 @@ a {
   padding: 5px;
   display: inline-block;
 }
-.card-content,
-.deploy,
-.btn-github {
-  margin-top: 20px;
-}
 .footer-card {
   position: absolute;
-  bottom: 20px;
-}
-i {
-  padding-left: 10px;
+  bottom: 15px;
+  display: flex;
+  gap: 20px;
 }

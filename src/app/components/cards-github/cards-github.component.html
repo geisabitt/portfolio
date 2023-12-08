@@ -1,39 +1,40 @@
-<div class="container-title">
-  <h2>Projects</h2>
-</div>
-<section *ngIf="repositories$ | async as repositories; else loading">
-  <div *ngFor="let repository of repositories">
-    <div *ngIf="repository.fork !== true">
-      <div class="card-github">
-        <div class="card-header">
-          <h2 class="card-title">{{ repository.name | formatTitle }}</h2>
-          <div *ngIf="repository.language !== null || ''">
-            <p class="tag">{{ repository.language }}</p>
-          </div>
-        </div>
-        <div class="card-content">
-          <p>{{ repository.description }}</p>
-          <div class="deploy" *ngIf="repository.homepage !== null || ''; else noDeploy">
-            <a [href]="repository.homepage" target="_blank">Visualizar pagina<i
-                class="fa-solid fa-arrow-right-to-bracket"></i></a>
-          </div>
-          <ng-template #noDeploy>
-            <div class="deploy">
-              <h3>No Deploy</h3>
-              <mat-icon>mood_bad</mat-icon>
+<section class="container">
+  <div class="container-title">
+    <h2>Projects</h2>
+  </div>
+  <section *ngIf="repositories$ | async as repositories; else loading">
+    <div *ngFor="let repository of repositories">
+      <div *ngIf="repository.fork !== true">
+        <div class="card-github">
+          <div class="card-header">
+            <h2 class="card-title">{{ repository.name | formatTitle }}</h2>
+            <div *ngIf="repository.language !== null || ''">
+              <p class="tag">{{ repository.language }}</p>
             </div>
-          </ng-template>
-        </div>
-        <mat-card-actions>
-          <div class="footer-card">
-            <a href="{{ repository.html_url }}" target="_blank" rel="{{ repository.name }}">Ver repositório<i
-                class="fa-brands fa-github"></i></a>
           </div>
-        </mat-card-actions>
+          <div class="card-content">
+            <p>{{ repository.description }}</p>
+          </div>
+          <div class="footer-card">
+            <div class="deploy" *ngIf="repository.homepage; else noDeploy">
+              <a [href]="repository.homepage" target="_blank">Ver pagina<i
+                  class="fa-solid fa-arrow-right-to-bracket"></i></a>
+            </div>
+            <ng-template #noDeploy>
+              <div class="deploy">
+                <p class="no-deploy">No Deploy<i class="fa-solid fa-face-frown"></i></p>
+              </div>
+            </ng-template>
+            <div>
+              <a href="{{ repository.html_url }}" target="_blank" rel="{{ repository.name }}">Ver repositório<i
+                  class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  <ng-template #loading>
+    <mat-progress-bar class="container" mode="indeterminate"></mat-progress-bar>
+  </ng-template>
 </section>
-<ng-template #loading>
-  <mat-progress-bar class="container" mode="indeterminate"></mat-progress-bar>
-</ng-template>
