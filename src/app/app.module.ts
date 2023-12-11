@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
     AboutComponent,
     CardsGithubComponent,
     FormatTitlePipe,
+    FooterComponent,
   ],
   imports: [AppRoutingModule, SharedModule],
   providers: [],
