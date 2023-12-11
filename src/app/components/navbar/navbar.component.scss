@@ -2,6 +2,9 @@ mat-toolbar {
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
 .menu {
   display: flex;
