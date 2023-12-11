@@ -3,7 +3,7 @@
     <h2>Projects</h2>
   </div>
   <section *ngIf="repositories$ | async as repositories; else loading">
-    <div *ngFor="let repository of repositories">
+    <div *ngFor="let repository of repositories.slice(0, displayCards)">
       <div *ngIf="repository.fork !== true">
         <div class="card-github">
           <div class="card-header">
@@ -17,7 +17,7 @@
           </div>
           <div class="footer-card">
             <div class="deploy" *ngIf="repository.homepage; else noDeploy">
-              <a [href]="repository.homepage" target="_blank">Ver pagina<i
+              <a class="btn-clean" [href]="repository.homepage" target="_blank">Ver pagina<i
                   class="fa-solid fa-arrow-right-to-bracket"></i></a>
             </div>
             <ng-template #noDeploy>
@@ -26,14 +26,22 @@
               </div>
             </ng-template>
             <div>
-              <a href="{{ repository.html_url }}" target="_blank" rel="{{ repository.name }}">Ver repositório<i
-                  class="fa-brands fa-github"></i></a>
+              <a class="btn-clean" href="{{ repository.html_url }}" target="_blank" rel="{{ repository.name }}">Ver
+                repositório<i class="fa-brands fa-github"></i></a>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- end loop cards -->
+
+    <section class="container btns">
+      <button class="btn-gradient" *ngIf="displayCards < repositories.length" (click)="viewMore()">Ver mais
+        projetos</button>
+      <button class="btn-gradient" *ngIf="displayCards > 4" (click)="viewBack()">Ver menos projetos</button>
+    </section>
   </section>
+  <!-- end repositories$ -->
   <ng-template #loading>
     <mat-progress-bar class="container" mode="indeterminate"></mat-progress-bar>
   </ng-template>

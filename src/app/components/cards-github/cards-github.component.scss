@@ -30,7 +30,6 @@ section {
   padding: 20px 40px;
   width: 100%;
 }
-a,
 .no-deploy {
   display: flex;
   justify-content: center;
@@ -41,11 +40,6 @@ a,
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   width: 150px;
   font-size: 14px;
-}
-a {
-  background: var(--color-graditent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .tag {
   background: rgba(74, 20, 140, 1);
@@ -59,4 +53,7 @@ a {
   bottom: 15px;
   display: flex;
   gap: 20px;
+}
+.btns button {
+  width: 256px;
 }

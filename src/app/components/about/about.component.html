@@ -1,14 +1,43 @@
 <section class="container-fluid">
   <div class="container">
+    <h3>About me</h3>
     <div class="line-left">
-      <h3>About me</h3>
-      <p class="highlighted-text">
-        Além de aprimorar habilidades técnicas, minha experiência profissional
-        também me permitiu desenvolver qualidades pessoais, como espírito
-        colaborativo, bom relacionamento com colegas de trabalho e clientes, boa
-        aceitação de feedbacks, resiliência, análise crítica e resolução de
-        problemas.
+      <p>
+        Olá! 👋 Sou a Geisa Bittencourt, uma desenvolvedora apaixonada por criar soluções incríveis no mundo do
+        desenvolvimento front-end. Meu dia a dia é um mix de linhas de código, reuniões produtivas e a busca constante
+        por desafios que me tirem da zona de conforto.
       </p>
+
+      <div *ngIf="showAllText">
+        <p>
+          Na vida profissional, sou aquela pessoa que adora colocar a mão na massa, seja construindo interfaces
+          responsivas com Angular ou React, elaborando soluções. Minha jornada
+          profissional me levou a colaborar com projetos significativos, como a criação de aplicações web para
+          organizações sem fins lucrativos, trazendo um impacto positivo para a comunidade.
+        </p>
+        <p>
+          No mundo da programação, sou como um personagem explorando diferentes mundos. 🎮 Amo não só resolver problemas
+          complexos de código, mas também mergulhar em jogos eletrônicos. Resident Evil 1 e as infinitas possibilidades
+          do
+          Minecraft são dois dos meus mundos favoritos fora das linhas de código. E sim, também sou viciada em animes!
+          🌟
+        </p>
+        <p>
+          Não é só sobre códigos e projetos, também é sobre a jornada e as pessoas. Meu tempo na costura ensinou o valor
+          do trabalho em equipe e sincronia, algo que carrego até hoje no desenvolvimento de software. Acredito na
+          importância das soft skills, como a comunicação e adaptabilidade, tanto quanto nas habilidades técnicas. </p>
+        <p>
+          Estou sempre em busca de novos desafios e oportunidades de crescimento. Seja para criar um website responsivo
+          ou
+          explorar um novo mundo em um videogame, estou sempre pronta para mergulhar de cabeça e enfrentar qualquer
+          desafio. Então, vamos criar algo incrível juntos?
+        </p>
+      </div>
+
+      <button class="btn-clean" (click)="toggleShowText()">
+        {{ showAllText ? 'Ver menos' : 'Ver mais' }}
+      </button>
+
     </div>
   </div>
 </section>

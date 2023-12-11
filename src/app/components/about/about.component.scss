@@ -17,4 +17,15 @@
 h3,
 p {
   margin-left: 20px;
+  width: 100%;
+}
+p {
+  text-align: justify;
+  margin-bottom: 10px;
+}
+.container {
+  flex-wrap: wrap;
+}
+button {
+  margin-left: 20px;
 }

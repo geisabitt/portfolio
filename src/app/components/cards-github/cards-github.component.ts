@@ -9,8 +9,17 @@ import { Repository } from 'src/app/types/repository.interface';
   styleUrls: ['./cards-github.component.scss'],
 })
 export class CardsGithubComponent implements OnInit {
-  repositories$: Observable<Repository[]> | undefined;
+  repositories$!: Observable<Repository[]>;
+  displayCards: number = 7;
   constructor(private githubService: GithubService) {}
+
+  viewMore(): void {
+    this.displayCards += 5;
+  }
+  viewBack(): void {
+    this.displayCards = 7;
+  }
+
   ngOnInit(): void {
     this.repositories$ = this.githubService.getRepository();
 
